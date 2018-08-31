@@ -54,6 +54,10 @@ services:
     restart: on-failure
   tikv0:
     image: pingcap/tikv:latest
+    ulimits:
+      nofile:
+       soft: 1000000
+       hard: 1000000
     volumes:
       - ./config/tikv.toml:/tikv.toml:ro
       - ./data:/data
@@ -70,6 +74,11 @@ services:
     restart: on-failure
   tikv1:
     image: pingcap/tikv:latest
+    ulimits:
+      nofile:
+       soft: 1000000
+       hard: 1000000
+
     volumes:
       - ./config/tikv.toml:/tikv.toml:ro
       - ./data:/data
@@ -86,6 +95,10 @@ services:
     restart: on-failure
   tikv2:
     image: pingcap/tikv:latest
+    ulimits:
+      nofile:
+       soft: 1000000
+       hard: 1000000
     volumes:
       - ./config/tikv.toml:/tikv.toml:ro
       - ./data:/data
